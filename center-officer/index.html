@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="./public/css/citizens.css" />
     <link rel="stylesheet" href="./public/css/main.css" />
     <link rel="stylesheet" href="./public/css/random-location.css" />
+    <link rel="stylesheet" href="./public/css/sidepeek-info.css" />
 
     <!-- <link rel="apple-touch-icon" sizes="180x180" href="/public/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/favicon-32x32.png">
@@ -70,9 +71,9 @@
   </head>
   <body>
     <main>
-      <div class="header-citizens">
+      <!-- <div class="header-citizens">
         <!-- <img src="./public/images/logo.svg" alt="Not found" /> -->
-        <div class="search"></div>
+        <!-- <div class="search"></div> -->
 
         <!-- <form action="" class="search">
           <div id="geocoding-container" class="searchbar-box">
@@ -87,16 +88,111 @@
             <i class="bi bi-search icon-searchbar"></i>
           </div>
         </form> -->
-      </div>
+      <!-- </div> -->
       <div
         class="map-container"
-        style="width: 100%; height: calc(100vh - 3.5rem)"
+        style="width: 100%; height: 100vh"
       >
         <div id="map"></div>
       </div>
 <!-- MAP END -->
 
 
+    <!-- SIDE PEEK INFO begin -->
+
+
+    <div class="sidepeek-container float" id="sidepeek-ad">
+      <div class="area-icon shadow-sm">
+        <i class="bi bi-pin-map"></i>
+        <h3 id="area">Enter Client Info</h3>
+      </div>
+      <div class="info-container">
+          <div class="text-box">
+              <img class="info-container-img" src="./public/images/profile.svg">
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingNameInput" placeholder="Name">
+                  <label for="floatingNameInput">Name</label>
+              </div>
+          </div>
+
+          <div class="text-box">
+            <img class="info-container-img" src="./public/images/ph_phone-fill.svg">
+              <div class="form-floating mb-3">
+                  <input type="tel" class="form-control" id="floatingPhoneInput" placeholder="Phone number">
+                  <label for="floatingPhoneInput">Phone number</label>
+              </div>
+          </div>
+      </div>
+
+      <hr>
+
+
+    <div class="location-info-container">
+      <div class="mark-container">
+        <img class="mark-container-img" src="./public/images/pickup-mark.svg">
+        <img id="connect-line" src="./public/images/line.svg" alt="Not found!">
+        <img class="mark-container-img" id="dropoff-mark" src="./public/images/dropoff-mark.svg">
+      </div>
+      <div class="mark-container-form">
+        <input style="margin-bottom: 15px; height: 50px;" class="form-control" type="text" placeholder="Pick up location">
+        <input style="height: 50px;" class="form-control" type="text" placeholder="Drop off location">
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="suggestions-list">
+      <h6>Select a location</h6>
+      
+    </div>
+
+    <div class="info-container" style="margin-top: 20px;">
+      <button type="button" class="btn btn-success">Confirm</button>
+    </div>
+
+    <hr>
+
+
+    <div class="info-container">
+      <h6>Available Ride</h6>
+      <div class="vehicle-card">
+        <div class="vehicle-img">
+          <img src="./public/images/car.png" alt="Not found!">
+        </div>
+        <div class="type-persons">
+          <p class="vehicle-type">Car</p>
+          <p class="num-persons">4+1 Persons</p>
+        </div>
+        <div class="price-time">
+          <p class="price">$20.00</p>
+          <p class="time">3 - 7 mins</p>
+        </div>
+      </div>
+
+      <div class="vehicle-card">
+        <div class="vehicle-img">
+          <img src="./public/images/bike.png" alt="Not found!">
+        </div>
+        <div class="type-persons">
+          <p class="vehicle-type">Bile</p>
+          <p class="num-persons">1 Person</p>
+        </div>
+        <div class="price-time">
+          <p class="price">$10.00</p>
+          <p class="time">2 - 5 mins</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    </div>
+    
+
+    <!-- SIDE PEEK INFO end -->
 
       <!-- --------------------- RANDOM-LOCATION Begin ---------------------  -->
 

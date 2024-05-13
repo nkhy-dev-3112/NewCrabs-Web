@@ -51,9 +51,9 @@ const marker = new mapboxgl.Marker({
 });
 
 // Get the Mapbox Geocoding container
-var geocoderContainer = document.querySelector(".mapboxgl-ctrl-geocoder");
-var headerCitizensDiv = document.querySelector(".search");
-headerCitizensDiv.appendChild(geocoderContainer);
+// var geocoderContainer = document.querySelector(".mapboxgl-ctrl-geocoder");
+// var headerCitizensDiv = document.querySelector(".search");
+// headerCitizensDiv.appendChild(geocoderContainer);
 
 map.on("click", (e) => {
     marker.remove();
