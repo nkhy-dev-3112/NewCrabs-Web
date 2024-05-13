@@ -18,10 +18,24 @@
   left: 1.5rem;
 }
 
+.profile-button
+{
+  border: none;
+  background-color: transparent;
+  top: 1.5rem;
+  right: 1.5rem;
+  border-top-right-radius: 12px;
+}
+
 .sidepeek-container {
   width: 28rem;
   background-color: #f9fafd;
   overflow-y: auto;
+  position: absolute;
+}
+
+.profile-button
+{
   position: absolute;
 }
 
