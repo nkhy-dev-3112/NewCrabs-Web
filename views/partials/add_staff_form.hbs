@@ -1,0 +1,50 @@
+<div style="display: flex; flex-direction: ;" class="d-flex px-4 py-4">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add a staff
+    </button>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center ">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add New Staff</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="staffForm">
+                        <div>
+                            <label for="staffEmail">Email</label><br>
+                            <input class="form-control" type="text" id="staffEmail" name="staffEmail" required><br>
+                        </div>
+                        <div>
+                            <label for="staffFullname">Fullname</label><br>
+                            <input class="form-control" type="text" id="staffFullname" name="staffFullname"
+                                required><br>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="staffGender">Gender</label>
+                                <select class="form-select" name="staffGender" id="staffGender">
+                                    <option value="male" selected>Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="others"> Others</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="staffDOB" class="form-label">Date of Birth</label>
+                                <input class="form-control" type="date" id="staffDOB" name="staffDOB" placeholder="" />
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

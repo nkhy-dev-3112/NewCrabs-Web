@@ -1,0 +1,98 @@
+<div class="d-flex flex-column">
+    {{>add_voucher_form}}
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Vouchers table</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table id="voucherTable" class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Voucher</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Value</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Start Date</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            End Date</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Usage</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Percentage Discount</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="voucherTableBody">
+                                    {{#each vouchers}}
+                                    <tr class="tr_in_table_in_location">
+                                        <td>
+                                            <div class="d-flex px-2 py-1">
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm">{{id}}</h6>
+                                                    <p class="text-xs text-secondary mb-0">{{description}}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="align-middle text-center text-sm">
+                                            {{#ifEquals status "SCHEDULED"}}
+                                            <span class="badge badge-sm bg-gradient-warning">{{status}}</span>
+                                            {{/ifEquals}}
+
+                                            {{#ifEquals status "EXPIRED"}}
+                                            <span class="badge badge-sm bg-gradient-danger">{{status}}</span>
+                                            {{/ifEquals}}
+
+                                            {{#ifEquals status "ACTIVE"}}
+                                            <span class="badge badge-sm bg-gradient-success">{{status}}</span>
+                                            {{/ifEquals}}
+
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">{{value}}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">{{start}}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">{{end}}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">{{usage}}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            {{#ifEquals isPercentage false}}
+                                            <embed src="../../public/img/is_not_percentage.svg" type="image/svg+xml">
+                                            {{/ifEquals}}
+
+                                            {{#ifEquals isPercentage true}}
+                                            <embed src="../../public/img/is_percentage.svg" type="image/svg+xml">
+                                            {{/ifEquals}}
+                                        </td>
+
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="../../public/css/admin-voucher.css">
