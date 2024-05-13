@@ -1,0 +1,28 @@
+.card .card-body {
+  padding-top: 0;
+}
+#driver-pie-chart {
+  height: 15vh;
+  padding-bottom: 4px;
+}
+.card-config-height {
+  height: 38vh !important;
+}
+
+.driver-hr {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+.top-mar-hr {
+  margin: 0 !important;
+}
+.bg-primary {
+  background-color: #4fae59 !important;
+}
+.bg-gradient-primary {
+  background-image: linear-gradient(
+    310deg,
+    #76ca28 0%,
+    #4fae59 100%
+  ) !important;
+}
