@@ -1,0 +1,48 @@
+<div class="container-fluid py-4">
+    <div class="content">
+
+        <div class="data">
+            <div class="tab-titles">
+                <h3 class="tab-links active-link mb-3" onclick="opentab('profile')">
+                    Profile Setting
+                </h3>
+            </div>
+            <div class="tab-contents active-tab" id="profile">
+                <div class="row">
+                    <div class="col-9 flex flex-center">
+                        <form id="formAccountSettings form-check" onsubmit="return false">
+                            <div class="col">
+                                <div class="mb-3 col-md-6">
+                                    <label for="new-firstname" class="form-label">Full Name</label>
+                                    <input class="form-control" type="text" id="new-firstname" name="new-firstname"
+                                        placeholder="Nguyễn Khang Hy" autofocus />
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3 col-md-3">
+                                        <label class="form-label" for="GenderSelect">Gender</label>
+                                        <select class="form-select" name="GenderSelect" id="GenderSelect">
+                                            <option value="male" selected>Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others"> Others</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-md-3">
+                                        <label for="dob-user" class="form-label">Date of Birth</label>
+                                        <input class="form-control" type="date" id="dob-user" name="doc-user"
+                                            value="2003-01-01" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <button type="submit" class="btn bg-primary text-white disabled"
+                                    onclick="updateUserProfile(this)">
+                                    Save changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

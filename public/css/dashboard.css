@@ -1,0 +1,18 @@
+.card .card-body {
+  padding-top: 0;
+}
+#driver-pie-chart {
+  height: 15vh;
+  padding-bottom: 4px;
+}
+.card-config-height {
+  height: 38vh !important;
+}
+
+.driver-hr {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+.top-mar-hr {
+  margin: 0 !important;
+}
