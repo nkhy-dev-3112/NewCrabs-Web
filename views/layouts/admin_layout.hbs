@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{pageName}}</title>
+  <!--- Link fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../../public/css/nav.css">
+
+  <!-- This page -->
+  <link rel="stylesheet" href="../../public/css/dashboard.css">
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <!-- Include Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <!-- Aside -->
+  {{>admin-side-nav}}
+  <!-- Main -->
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <!-- Navbar -->
+    {{>admin-nav}}
+    {{{body}}}
+  </main>
+</body>
+<script src="../../public/js/driver-chart.js"></script>
+<script src="../../public/js/revenue-line-chart.js"></script>
+<script src="../../public/js/location-bar.js""></script>
+  <script src=" ../../assets/js/core/popper.min.js"></script>
+<script src="../../assets/js/core/bootstrap.min.js"></script>
+<script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="../../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+<script>
+  // Create the pie chart
+  var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: options
+  });
+</script>
+
+<script>
+  new Chart(ctx2, {
+    type: "line",
+    data: revenue_data,
+    options: revenue_option,
+  });
+</script>
+
+<script>
+  new Chart(ctx3, {
+    type: "bar",
+    data: location_data,
+    options: location_option,
+  });
+</script>
+
+</html>
