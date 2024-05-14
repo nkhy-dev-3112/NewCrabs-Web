@@ -1,0 +1,51 @@
+<div style="display: flex; flex-direction: ;" class="d-flex px-4 py-4">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add a Voucher
+    </button>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center ">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Voucher</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="voucherForm">
+                        <div>
+                            <label for="voucherName">Voucher Name:</label><br>
+                            <input type="text" id="voucherName" name="voucherName" required><br>
+                        </div>
+                        <div>
+                            <label for="description">Description:</label><br>
+                            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
+                        </div>
+                        <div>
+                            <label for="startDate">Start Date:</label><br>
+                            <input class="form-control" type="date" id="startDate" name="startDate" required><br>
+                        </div>
+                        <div>
+                            <label for="endDate">End Date:</label><br>
+                            <input class="form-control" type="date" id="endDate" name="endDate" required><br>
+                        </div>
+                        <div>
+                            <label for="discountValue">Value of Discount:</label><br>
+                            <input type="number" id="discountValue" name="discountValue" required><br>
+                        </div>
+                        <div class="d-flex py-2">
+                            <label class="pe-2" for="isDiscountPercentage">Is Discount Percentage:</label><br>
+                            <input class="mb-4" type="checkbox" id="isDiscountPercentage"
+                                name="isDiscountPercentage"><br>
+                        </div>
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

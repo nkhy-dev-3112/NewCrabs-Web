@@ -1,0 +1,59 @@
+<aside
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-l my-3 fixed-start ms-3 d-flex flex-column justify-content-between"
+    id="sidenav-main">
+    <div>
+        <div class="sidenav-header">
+            <img src="../../public/img/newcrabs-logo.png" class="navbar-brand-img h-50" alt="main_logo" />
+        </div>
+
+        <div class="collapse navbar-collapse w-auto h-auto" id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link {{booking_active}}" href="/map">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            {{#ifEquals booking_active "active"}}
+                            <img src="../../public/img/admin-nav/dashboard-active.svg">
+                            {{/ifEquals}}
+                            {{#ifEquals booking_active null}}
+                            <img src="../../public/img/admin-nav/dashboard-deactive.svg">
+                            {{/ifEquals}}
+                        </div>
+                        <span class="nav-link-text ms-1">Booking</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{history_active}}" href="/history">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            {{#ifEquals history_active "active"}}
+                            <img src="../../public/img/admin-nav/voucher-active.svg">
+                            {{/ifEquals}}
+                            {{#ifEquals history_active null}}
+                            <img src="../../public/img/admin-nav/voucher-deactive.svg">
+                            {{/ifEquals}}
+                        </div>
+                        <span class="nav-link-text ms-1">History</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{profile_active}}" href="/manage_profile">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            {{#ifEquals profile_active "active"}}
+                            <img src="../../public/img/admin-nav/driver-active.svg">
+                            {{/ifEquals}}
+                            {{#ifEquals profile_active null}}
+                            <img src="../../public/img/admin-nav/driver-deactive.svg">
+                            {{/ifEquals}}
+                        </div>
+                        <span class="nav-link-text ms-1">Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mx-3">
+        <div class="btn bg-primary w-100 text-white">Log out</div>
+    </div>
+</aside>
