@@ -75,6 +75,40 @@
             text-align: right;
         }
 
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .mode-selection {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="number"], input[type="time"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
     </style>
 </head>
 
@@ -489,31 +523,69 @@
                             </div>
                             <div class="modal-body">
                                 <form id="voucherForm">
-                                    <div>
-                                        <label for="voucherName">Voucher Name:</label><br>
-                                        <input type="text" id="voucherName" name="voucherName" required><br>
+                                    <div class="mb-4">
+                                        <label for="voucherName">Voucher Name:</label> 
+                                        <input type="text" id="voucherName" name="voucherName" required> 
                                     </div>
-                                    <div>
-                                        <label for="description">Description:</label><br>
-                                        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
+                                    <div class="mb-4">
+                                        <label for="description">Description:</label> 
+                                        <textarea id="description" name="description" rows="4" cols="50" required></textarea> 
                                     </div>
-                                    <div>
-                                        <label for="startDate">Start Date:</label><br>
-                                        <input type="date" id="startDate" name="startDate" required><br>
+                                    <div class="mb-4">
+                                        <label for="startDate">Start Date:</label> 
+                                        <input type="date" id="startDate" name="startDate" required> 
                                     </div>
-                                    <div>
-                                        <label for="endDate">End Date:</label><br>
-                                        <input type="date" id="endDate" name="endDate" required><br>
+                                    <div class="mb-4">
+                                        <label for="endDate">End Date:</label> 
+                                        <input type="date" id="endDate" name="endDate" required> 
                                     </div>
-                                    <div>
-                                        <label for="discountValue">Value of Discount:</label><br>
-                                        <input type="number" id="discountValue" name="discountValue" required><br>
+                                    <div class="mb-4">
+                                        <label for="discountValue">Value of Discount:</label> 
+                                        <input type="number" id="discountValue" name="discountValue" required> 
                                     </div>
-                                    <div class="d-flex py-2">
-                                        <label class="pe-2" for="isDiscountPercentage">Is Discount Percentage:</label><br>
-                                        <input class="mb-4" type="checkbox" id="isDiscountPercentage" name="isDiscountPercentage"><br>
+                                    <div class="d-flex mb-4">
+                                        <label class="pe-2" for="isDiscountPercentage">Is Discount Percentage:</label> 
+                                        <input class="mb-4" type="checkbox" id="isDiscountPercentage" name="isDiscountPercentage"> 
                                     </div>
-                                    <br>
+                                    <div style="display: block; margin: 0; padding: 0;" class="mb-4 modal-footer">
+                                        <label  style="text-align: left; padding: 20px 0 0 0;" for="startDate">Voucher Type:</label> 
+                                        <select id="voucherType" name="voucherType" class="status-selected form-select w-50" aria-label="Default select example">
+                                            <option value="0">Voucher nhãn hàng</option>
+                                            <option value="1">Voucher nền tảng</option>
+                                            <option value="2">Voucher ngân hàng</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="startDate">Attribute:</label>
+                                        <div class="mode-selection">
+                                            <label>
+                                                <input type="radio" name="mode" value="distance" onclick="showInputFields()"> Distance
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="mode" value="time" onclick="showInputFields()"> Time Duration
+                                            </label>
+                                        </div>
+                                        
+                                        <div id="distanceInput" class="input-group" style="display: none;">
+                                            <label for="distance">Minimum Distance (km):</label>
+                                            <input type="number" id="distance" name="distance">
+                                        </div>
+                                        
+                                        <div id="timeInput" class="input-group" style="display: none;">
+                                            <label for="startTime">Start Time:</label>
+                                            <input type="time" id="startTime" name="startTime">
+                                            <label for="endTime">End Time:</label>
+                                            <input type="time" id="endTime" name="endTime">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="conditionDescription">Description:</label> 
+                                        <textarea id="conditionDescription" name="conditionDescription" rows="4" cols="50" required></textarea> 
+                                    </div>
+                                    
+                                     
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
@@ -811,25 +883,51 @@
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script>
+
+        function showInputFields() {
+            const mode = document.querySelector('input[name="mode"]:checked').value;
+            const distanceInput = document.getElementById('distanceInput');
+            const timeInput = document.getElementById('timeInput');
+
+            if (mode === 'distance') {
+                distanceInput.style.display = 'block';
+                timeInput.style.display = 'none';
+            } else if (mode === 'time') {
+                distanceInput.style.display = 'none';
+                timeInput.style.display = 'block';
+            }
+        }
+
         table_headings = document.querySelectorAll("thead th");
         // Function to get voucher information from the form
         function getVoucherInformation() {
             // Get input values
-            var voucherName = document.getElementById("voucherName").value;
-            var description = document.getElementById("description").value;
-            var startDate = document.getElementById("startDate").value;
-            var endDate = document.getElementById("endDate").value;
-            var discountValue = document.getElementById("discountValue").value;
-            var isDiscountPercentage = document.getElementById("isDiscountPercentage").checked;
+            const form = document.getElementById('voucherForm');
 
-            // Create an object to hold the information
-            var voucherInfo = {
-                voucherName: voucherName,
-                description: description,
-                startDate: startDate,
-                endDate: endDate,
-                discountValue: discountValue,
-                isDiscountPercentage: isDiscountPercentage
+            const voucherName = form.voucherName.value;
+            const description = form.description.value;
+            const startDate = form.startDate.value;
+            const endDate = form.endDate.value;
+            const discountValue = form.discountValue.value;
+            const isDiscountPercentage = form.isDiscountPercentage.checked;
+            const voucherType = form.voucherType.value;
+            const mode = document.querySelector('input[name="mode"]:checked') ? document.querySelector('input[name="mode"]:checked').value : null;
+            const distance = mode === 'distance' ? form.distance.value : null;
+            const startTime = mode === 'time' ? form.startTime.value : null;
+            const endTime = mode === 'time' ? form.endTime.value : null;
+
+            return {
+                voucherName,
+                description,
+                startDate,
+                endDate,
+                discountValue,
+                isDiscountPercentage,
+                voucherType,
+                mode,
+                distance,
+                startTime,
+                endTime
             };
 
             return voucherInfo;
