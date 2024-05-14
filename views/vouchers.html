@@ -916,19 +916,19 @@
             const startTime = mode === 'time' ? form.startTime.value : null;
             const endTime = mode === 'time' ? form.endTime.value : null;
 
-            return {
-                voucherName,
-                description,
-                startDate,
-                endDate,
-                discountValue,
-                isDiscountPercentage,
-                voucherType,
-                mode,
-                distance,
-                startTime,
-                endTime
-            };
+            var voucherInfo = {
+                voucherName: voucherName,
+                description: description,
+                startDate: startDate,
+                endDate: endDate,
+                discountValue: discountValue,
+                isDiscountPercentage: isDiscountPercentage,
+                voucherType: voucherType,
+                mode: mode,
+                distance: distance,
+                startTime: startTime,
+                endTime: endTime
+            }
 
             return voucherInfo;
         }
