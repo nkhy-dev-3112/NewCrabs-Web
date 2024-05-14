@@ -8,13 +8,14 @@ const port = 4000 || process.env.port;
 const expressHbs = require("express-handlebars");
 const hbs = expressHbs.create({});
 
-const admin_dashboard = require('./public/js/admin-dashboard-data');
-const admin_voucher = require('./public/js/admin-voucher-data');
-const admin_drivers_data = require("./public/js/admin-drivers-data");
-const admin_staffs = require('./public/js/admin-staffs-data');
+const admin_dashboard = require('./controllers/admin/admin-dashboard-data');
+const admin_voucher = require('./controllers/admin/admin-voucher-data');
+const admin_drivers_data = require("./controllers/admin/admin-drivers-data");
+const admin_staffs = require('./controllers/admin/admin-staffs-data');
 
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use("/controllers", express.static(path.join(__dirname, "controllers")));
 
 expressHbs.create({
   runtimeOptions: {
@@ -100,7 +101,28 @@ app.get('/fare-rate', (req, res) => {
 })
 // Admin routing
 
-
+// Center officer route
+app.get('/map', (req, res) => {
+  res.render('center-officer/map', {
+    pageName: 'Booking',
+    layout: 'centre_officer_layout',
+    booking_active: 'active'
+  })
+})
+app.get('/history', (req, res) => {
+  res.render('center-officer/history', {
+    pageName: 'History',
+    layout: 'centre_officer_layout',
+    history_active: 'active'
+  })
+})
+app.get('/manage_profile', (req, res) => {
+  res.render('center-officer/manage_profile', {
+    pageName: 'Manage profile',
+    layout: 'centre_officer_layout',
+    profile_active: 'active'
+  })
+})
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port} `);
 })

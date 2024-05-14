@@ -1,0 +1,141 @@
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <!-- Navbar -->
+    <div class="container-fluid">
+        <div class="map-container" style="width: 93%; height: 100vh">
+            <div id="map"></div>
+        </div>
+
+        <div class="sidepeek-container float ms-4" id="sidepeek-ad">
+            <div class="area-icon shadow-sm">
+                <i class="bi bi-pin-map"></i>
+                <h5 id="area">Enter Client Info</h5>
+            </div>
+            <div class="info-container">
+                <div class="text-box">
+                    <img class="info-container-img" src="../../public/img/center-officer/profile.svg">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingNameInput" placeholder="Name">
+                        <label for="floatingNameInput">Name</label>
+                    </div>
+                </div>
+
+                <div class="text-box">
+                    <img class="info-container-img" src="../../public/img/center-officer/ph_phone-fill.svg">
+                    <div class="form-floating mb-3">
+                        <input type="tel" class="form-control" id="floatingPhoneInput" placeholder="Phone number">
+                        <label for="floatingPhoneInput">Phone number</label>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+
+            <div class="location-info-container">
+                <div class="mark-container">
+                    <img class="mark-container-img" src="../../public/img/center-officer/pickup-mark.svg">
+                    <img id="connect-line" src="../../public/img/center-officer/line.svg" alt="Not found!">
+                    <img class="mark-container-img" id="dropoff-mark"
+                        src="../../public/img/center-officer/dropoff-mark.svg">
+                </div>
+                <div class="mark-container-form">
+                    <input style="margin-bottom: 15px; height: 50px;" class="form-control" type="text"
+                        placeholder="Pick up location">
+                    <input style="height: 50px;" class="form-control" type="text" placeholder="Drop off location">
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="suggestions-list">
+                <h6>Select a location</h6>
+
+            </div>
+
+            <div class="info-container" style="margin-top: 20px;">
+                <button type="button" class="btn btn-success">Confirm</button>
+            </div>
+
+            <hr>
+
+
+            <div class="info-container">
+                <h6>Available Ride</h6>
+                <div class="vehicle-card">
+                    <div class="vehicle-img">
+                        <img src="../../public/img/center-officer/car.png" alt="Not found!">
+                    </div>
+                    <div class="type-persons">
+                        <p class="vehicle-type">Car</p>
+                        <p class="num-persons">4+1 Persons</p>
+                    </div>
+                    <div class="price-time">
+                        <p class="price">$20.00</p>
+                        <p class="time">3 - 7 mins</p>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <div class="vehicle-img">
+                        <img src="../../public/img/center-officer/bike.png" alt="Not found!">
+                    </div>
+                    <div class="type-persons">
+                        <p class="vehicle-type">Bile</p>
+                        <p class="num-persons">1 Person</p>
+                    </div>
+                    <div class="price-time">
+                        <p class="price">$10.00</p>
+                        <p class="time">2 - 5 mins</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+        <!-- SIDE PEEK INFO end -->
+
+        <!-- --------------------- RANDOM-LOCATION Begin ---------------------  -->
+
+        <div class="random-container shadow-sm hidden" id="random-sidepeek">
+            <img src="../../public/img/center-officer/random-location.svg" alt="not found" />
+            <div class="content">
+                <div class="address-container">
+                    <p class="detail-address">227, Nguyễn Văn Cừ</p>
+                    <p class="area">Phường 4, Quận 5, Thành Phố Hồ Chí Minh</p>
+                </div>
+                <div class="coorordinate">
+                    <p class="lat-long">10.750839 - 106.674025</p>
+                    <!-- <button type="button" class="btn btn-primary feedback-button" onclick="openFeedbackForm(this)">
+                <i class="bi bi-send-fill"></i>
+                Phản hồi
+                <div class="spinner-border spinner-border-sm hidden" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </button> -->
+                </div>
+            </div>
+            <i class="bi bi-x delete-random"></i>
+        </div>
+        <!-- --------------------- RANDOM-LOCATION End ---------------------  -->
+    </div>
+</main>
+
+<link rel="stylesheet" href="../../public/css/center-officer/maps.css" />
+<link rel="stylesheet" href="../../public/css/center-officer/citizens.css" />
+<link rel="stylesheet" href="../../public/css/center-officer/main.css" />
+<link rel="stylesheet" href="../../public/css/center-officer/random-location.css" />
+<link rel="stylesheet" href="../../public/css/center-officer/sidepeek-info.css" />
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Map Box library -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/supercluster"></script>
+
+<script type="module" src="../../controllers/maps/map.js"></script>
