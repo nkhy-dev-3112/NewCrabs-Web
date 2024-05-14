@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        NewCrabs
+        Soft UI Dashboard by Creative Tim
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -60,7 +60,7 @@
         #voucherForm input[type="text"],
         #voucherForm input[type="date"],
         #voucherForm input[type="number"],
-        #voucherForm textarea {
+        #voucherForm input {
             width: 100%;
             padding: 5px;
             border: 1px solid #ced4da;
@@ -75,40 +75,6 @@
             text-align: right;
         }
 
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .mode-selection {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        input[type="number"], input[type="time"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-
     </style>
 </head>
 
@@ -120,7 +86,8 @@
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
                 target="_blank">
-                <span class="ms-5 fs-5 font-weight-bold">NewCrabs</span>
+                <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -508,311 +475,269 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="d-flex flex-column">
-            <div style="display: flex;" class="d-flex px-4 py-4">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Add a Voucher
-                </button>
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header text-center ">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Voucher</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div style="display: flex; flex-direction: ;" class="d-flex px-4 py-4">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Add a Staff
+                        </button>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center ">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Staff</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="voucherForm">
+                                            <div>
+                                                <label for="email">Email:</label><br>
+                                                <input type="text" id="email" name="email" required><br>
+                                            </div>
+                                            <div>
+                                                <label for="fullname">Full Name:</label><br>
+                                                <input type="text" id="fullname" name="fullname" required></input><br>
+                                            </div>
+                                            <div>
+                                                <label for="dob">Date of Birth:</label><br>
+                                                <input type="date" id="dob" name="dob" required><br>
+                                            </div>
+                                            <div>
+                                                <label for="gender">Gender:</label><br>
+                                                <select id="gender" name="gender" class="status-selected form-select" aria-label="Default select example">
+                                                    <option value="Male" selected>Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                    
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <form id="voucherForm">
-                                    <div class="mb-4">
-                                        <label for="voucherName">Voucher Name:</label> 
-                                        <input type="text" id="voucherName" name="voucherName" required> 
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="description">Description:</label> 
-                                        <textarea id="description" name="description" rows="4" cols="50" required></textarea> 
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="startDate">Start Date:</label> 
-                                        <input type="date" id="startDate" name="startDate" required> 
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="endDate">End Date:</label> 
-                                        <input type="date" id="endDate" name="endDate" required> 
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="discountValue">Value of Discount:</label> 
-                                        <input type="number" id="discountValue" name="discountValue" required> 
-                                    </div>
-                                    <div class="d-flex mb-4">
-                                        <label class="pe-2" for="isDiscountPercentage">Is Discount Percentage:</label> 
-                                        <input class="mb-4" type="checkbox" id="isDiscountPercentage" name="isDiscountPercentage"> 
-                                    </div>
-                                    <div style="display: block; margin: 0; padding: 0;" class="mb-4 modal-footer">
-                                        <label  style="text-align: left; padding: 20px 0 0 0;" for="startDate">Voucher Type:</label> 
-                                        <select id="voucherType" name="voucherType" class="status-selected form-select w-50" aria-label="Default select example">
-                                            <option value="0">Voucher nhãn hàng</option>
-                                            <option value="1">Voucher nền tảng</option>
-                                            <option value="2">Voucher ngân hàng</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="startDate">Attribute:</label>
-                                        <div class="mode-selection">
-                                            <label>
-                                                <input type="radio" name="mode" value="distance" onclick="showInputFields()"> Distance
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="mode" value="time" onclick="showInputFields()"> Time Duration
-                                            </label>
-                                        </div>
-                                        
-                                        <div id="distanceInput" class="input-group" style="display: none;">
-                                            <label for="distance">Minimum Distance (km):</label>
-                                            <input type="number" id="distance" name="distance">
-                                        </div>
-                                        
-                                        <div id="timeInput" class="input-group" style="display: none;">
-                                            <label for="startTime">Start Time:</label>
-                                            <input type="time" id="startTime" name="startTime">
-                                            <label for="endTime">End Time:</label>
-                                            <input type="time" id="endTime" name="endTime">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="conditionDescription">Description:</label> 
-                                        <textarea id="conditionDescription" name="conditionDescription" rows="4" cols="50" required></textarea> 
-                                    </div>
-                                    
-                                     
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
-                                    </div>
-                                </form>
-                            </div>
-
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="container-fluid py-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card mb-4">
-                            <div class="card-header pb-0">
-                                <h6>Voucher table</h6>
-                            </div>
-                            <div class="card-body px-0 pt-0 pb-2">
-                                <div class="table-responsive p-0">
-                                    <table id="voucherTable" class="table align-items-center mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    Voucher</th>
-                                                <th
-                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    Status</th>
-                                                <th
-                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    Value</th>
-                                                <th
-                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    Start Date</th>
-                                                <th
-                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    End Date</th>
-                                                <th
-                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    Usage</th>
-                                                <th
-                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    Percentage Discount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="voucherTableBody">
-                                            <tr class="tr_in_table_in_location">
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Release001</h6>
-                                                            <p class="text-xs text-secondary mb-0">Release app voucher</p>
-                                                        </div>
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4">
+                        <div class="card-header pb-0">
+                            <h6>Center Officer table</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table id="" class="table align-items-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Staff</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Email</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Gender</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Date of Birth</th>
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">State</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="voucherTableBody">
+                                        <tr class="tr_in_table_in_location">
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="../assets/img/team-2.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user1">
                                                     </div>
-                                                </td>
-            
-                                                <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-success">Active</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">100000đ</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 11/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 18/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">24/100</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    </svg>
-                                                </td>
-            
-                                            </tr>
-                                            <tr class="tr_in_table_in_location">
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Release002</h6>
-                                                            <p class="text-xs text-secondary mb-0">Release app voucher</p>
-                                                        </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">John Michael</h6>
                                                     </div>
-                                                </td>
-            
-                                                <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-success">Active</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">10%</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 11/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 18/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">11/100</span>
-                                                </td>
-                                                <td style="color: #7add2f;" class="align-middle text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                        fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                                                    </svg>
-                                                </td>
-            
-                                            </tr>
-                                            <tr class="tr_in_table_in_location">
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Release003</h6>
-                                                            <p class="text-xs text-secondary mb-0">Release app voucher</p>
-                                                        </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm font-weight-bold mb-0">sample@mail.com</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">Male</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">24/11/1987</span>
+                                            </td>
+                                            <td
+                                                class="align-middle text-center text-sm justify-content-center align-items-center d-flex">
+                                                <!-- <span class="badge badge-sm bg-gradient-success">Active</span> -->
+                                                <select id="typeSelect" class="status-selected form-select w-50"
+                                                    aria-label="Default select example">
+                                                    <option selected>Active</option>
+                                                    <option value="1">Pending</option>
+                                                    <option value="2">Blocked</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="tr_in_table_in_location">
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="../assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
                                                     </div>
-                                                </td>
-            
-                                                <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-danger">Expired</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">50000đ</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 11/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 12/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">24/100</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    </svg>
-                                                </td>
-            
-                                            </tr>
-                                            <tr class="tr_in_table_in_location">
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Release004</h6>
-                                                            <p class="text-xs text-secondary mb-0">Release app voucher</p>
-                                                        </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
                                                     </div>
-                                                </td>
-            
-                                                <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-warning">Scheduled</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">100000đ</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 20/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 27/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">0/100</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    </svg>
-                                                </td>
-            
-                                            </tr>
-                                            <tr class="tr_in_table_in_location">
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Release005</h6>
-                                                            <p class="text-xs text-secondary mb-0">Release app voucher</p>
-                                                        </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm font-weight-bold mb-0">sample@mail.com</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">Male</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">24/11/1987</span>
+                                            </td>
+                                            <td class="align-middle text-center text-sm justify-content-center align-items-center d-flex">
+                                                <!-- <span class="badge badge-sm bg-gradient-success">Active</span> -->
+                                                <select id="typeSelect" class="status-selected form-select w-50" aria-label="Default select example">
+                                                    <option selected>Active</option>
+                                                    <option value="1">Pending</option>
+                                                    <option value="2">Blocked</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="tr_in_table_in_location">
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="../assets/img/team-4.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user3">
                                                     </div>
-                                                </td>
-            
-                                                <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-success">Active</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">10000đ</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 11/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">23:24:00 18/05/2024</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary font-weight-bold">55/100</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    </svg>
-                                                </td>
-            
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Laurent Perrier</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm font-weight-bold mb-0">sample@mail.com</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">Male</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">24/11/1987</span>
+                                            </td>
+                                            <td class="align-middle text-center text-sm justify-content-center align-items-center d-flex">
+                                                <!-- <span class="badge badge-sm bg-gradient-success">Active</span> -->
+                                                <select id="typeSelect" class="status-selected form-select w-50" aria-label="Default select example">
+                                                    <option selected>Active</option>
+                                                    <option value="1">Pending</option>
+                                                    <option value="2">Blocked</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="tr_in_table_in_location">
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="../assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user4">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Michael Levi</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm font-weight-bold mb-0">sample@mail.com</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">Female</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">24/11/1987</span>
+                                            </td>
+                                            <td class="align-middle text-center text-sm justify-content-center align-items-center d-flex">
+                                                <!-- <span class="badge badge-sm bg-gradient-success">Active</span> -->
+                                                <select id="typeSelect" class="status-selected form-select w-50" aria-label="Default select example">
+                                                    <option selected>Active</option>
+                                                    <option value="1">Pending</option>
+                                                    <option value="2">Blocked</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="tr_in_table_in_location">
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="../assets/img/team-2.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user5">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Richard Gran</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm font-weight-bold mb-0">sample@mail.com</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">Male</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">24/11/1987</span>
+                                            </td>
+                                            <td class="align-middle text-center text-sm justify-content-center align-items-center d-flex">
+                                                <!-- <span class="badge badge-sm bg-gradient-success">Active</span> -->
+                                                <select id="typeSelect" class="status-selected form-select w-50" aria-label="Default select example">
+                                                    <option selected>Active</option>
+                                                    <option value="1">Pending</option>
+                                                    <option value="2">Blocked</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="tr_in_table_in_location">
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="../assets/img/team-4.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user6">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Miriam Eric</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm font-weight-bold mb-0">sample@mail.com</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">Male</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-sm font-weight-bold">24/11/1987</span>
+                                            </td>
+                                            <td class="align-middle text-center text-sm justify-content-center align-items-center d-flex">
+                                                <!-- <span class="badge badge-sm bg-gradient-success">Active</span> -->
+                                                <select id="typeSelect" class="status-selected form-select w-50" aria-label="Default select example">
+                                                    <option selected>Active</option>
+                                                    <option value="1">Pending</option>
+                                                    <option value="2">Blocked</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -821,7 +746,7 @@
         <div class="card shadow-lg ">
             <div class="card-header pb-0 pt-3 ">
                 <div class="float-start">
-                    <h5 class="mt-3 mb-0">NewCrabs</h5>
+                    <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
                     <p>See our dashboard options.</p>
                 </div>
                 <div class="float-end mt-4">
@@ -884,157 +809,98 @@
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script>
 
-        function showInputFields() {
-            const mode = document.querySelector('input[name="mode"]:checked').value;
-            const distanceInput = document.getElementById('distanceInput');
-            const timeInput = document.getElementById('timeInput');
-
-            if (mode === 'distance') {
-                distanceInput.style.display = 'block';
-                timeInput.style.display = 'none';
-            } else if (mode === 'time') {
-                distanceInput.style.display = 'none';
-                timeInput.style.display = 'block';
-            }
-        }
-
-        table_headings = document.querySelectorAll("thead th");
+    table_headings = document.querySelectorAll("thead th");
         // Function to get voucher information from the form
-        function getVoucherInformation() {
+        function getStaffInformation() {
             // Get input values
-            const form = document.getElementById('voucherForm');
+            var email = document.getElementById("email").value;
+            var fullname = document.getElementById("fullname").value;
+            var dob = document.getElementById("dob").value;
+            var genderSelect = document.getElementById("gender");
+            var gender = genderSelect.options[genderSelect.selectedIndex].value;
 
-            const voucherName = form.voucherName.value;
-            const description = form.description.value;
-            const startDate = form.startDate.value;
-            const endDate = form.endDate.value;
-            const discountValue = form.discountValue.value;
-            const isDiscountPercentage = form.isDiscountPercentage.checked;
-            const voucherType = form.voucherType.value;
-            const mode = document.querySelector('input[name="mode"]:checked') ? document.querySelector('input[name="mode"]:checked').value : null;
-            const distance = mode === 'distance' ? form.distance.value : null;
-            const startTime = mode === 'time' ? form.startTime.value : null;
-            const endTime = mode === 'time' ? form.endTime.value : null;
+            // Create an object to hold the information
+            var staff = {
+                email: email,
+                fullname: fullname,
+                dob: dob,
+                gender: gender,
+            };
 
-            var voucherInfo = {
-                voucherName: voucherName,
-                description: description,
-                startDate: startDate,
-                endDate: endDate,
-                discountValue: discountValue,
-                isDiscountPercentage: isDiscountPercentage,
-                voucherType: voucherType,
-                mode: mode,
-                distance: distance,
-                startTime: startTime,
-                endTime: endTime
-            }
-
-            return voucherInfo;
+            return staff;
         }
 
         document.getElementById("voucherForm").addEventListener("submit", function (event) {
             event.preventDefault();
 
-            var voucherInfo = getVoucherInformation();
-
-            console.log(voucherInfo);
-
+            var staff = getStaffInformation();
+            console.log(staff);
             var tableBody = document.getElementById("voucherTableBody");
             var newRow = document.createElement("tr");
             newRow.classList.add("tr_in_table_in_location")
             var name = document.createElement("td");
+            var email = document.createElement("td");
+            email.classList.add("text-secondary", "font-weight-bold", "text-sm");
+            var gender = document.createElement("td");
+            gender.classList.add("align-middle", "text-center", "text-sm");
+            var dob = document.createElement("td");
+            dob.classList.add("align-middle", "text-center", "text-sm");
             var state = document.createElement("td");
-            state.classList.add("align-middle", "text-center", "text-sm");
-            var value = document.createElement("td");
-            value.classList.add("align-middle", "text-center", "text-sm");
-            var start = document.createElement("td");
-            start.classList.add("align-middle", "text-center", "text-sm");
-            var end = document.createElement("td");
-            end.classList.add("align-middle", "text-center", "text-sm");
-            var isDiscountPercentage = document.createElement("td");
-            isDiscountPercentage.classList.add("align-middle", "text-center", "text-sm");
-            var usage = document.createElement("td")
-            usage.classList.add("align-middle", "text-center", "text-sm");
-            usage.innerHTML=`
-                <span class="text-secondary font-weight-bold">0/100</span>
-            `
-
+            state.classList.add("align-middle", "text-center", "text-sm", "justify-content-center", "align-items-center", "d-flex");
 
             name.innerHTML = `
                 <div class="d-flex px-2 py-1">
+                    <div>
+                        <img src="../assets/img/user_icon_011.jpg"
+                            class="avatar avatar-sm me-3" alt="user1">
+                    </div>
                     <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">${voucherInfo.voucherName}</h6>
-                        <p class="text-xs text-secondary mb-0">${voucherInfo.description}</p>
+                        <h6 class="mb-0 text-sm">${staff.fullname}</h6>
                     </div>
                 </div>
             `;
 
             newRow.appendChild(name);
 
-            var currentDate = new Date();
-            var startDate = new Date(voucherInfo.startDate);
-            var endDate = new Date(voucherInfo.endDate);
-            console.log(currentDate);
-            console.log(startDate);
-            console.log(endDate)
+            email.innerHTML = `
+                <span class="text-secondary font-weight-bold">${staff.email}</span>
+            `
+            newRow.appendChild(email);
 
-            if(startDate > currentDate && endDate > currentDate) {
-                state.innerHTML=`
-                    <span class="badge badge-sm bg-gradient-warning">Scheduled</span>
+            if(staff.gender == "Female"){
+                gender.innerHTML = `
+                    <span class="text-secondary font-weight-bold">Female</span>
                 `
-            } else if (endDate < currentDate && startDate < currentDate){
-                state.innerHTML = `
-                    <span class="badge badge-sm bg-gradient-danger">Expired</span>
-                `
-            } else {
-                    state.innerHTML = `
-                    <span class="badge badge-sm bg-gradient-success">Active</span>
+            } else if(staff.gender == "Male"){
+                gender.innerHTML = `
+                    <span class="text-secondary font-weight-bold">Male</span>
                 `
             }
+
+            newRow.appendChild(gender)
+
+            dob.innerHTML=`
+               <span class="text-secondary font-weight-bold">${staff.dob}</span>
+            `
+            newRow.appendChild(dob);
+
+            state.innerHTML=`
+                <select id="typeSelect" class="status-selected form-select w-50"
+                    aria-label="Default select example">
+                    <option selected>Active</option>
+                    <option value="1">Pending</option>
+                    <option value="2">Blocked</option>
+                </select>
+            `
             newRow.appendChild(state);
-
-            value.innerHTML=`
-                <span class="text-secondary font-weight-bold">${voucherInfo.discountValue}</span>
-            `            
-            newRow.appendChild(value);
-
-            start.innerHTML=`
-                <span class="text-secondary font-weight-bold">${voucherInfo.startDate}</span>
-            `
-            newRow.appendChild(start);
-
-            end.innerHTML = `
-                <span class="text-secondary font-weight-bold">${voucherInfo.endDate}</span>
-            `
-            newRow.appendChild(end);
-
-            newRow.appendChild(usage);
-
-
-            if(!voucherInfo.isDiscountPercentage){
-                isDiscountPercentage.innerHTML = 
-                `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                    <path
-                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                </svg>`
-            } else {
-                isDiscountPercentage.style.color = "#7add2f"
-                isDiscountPercentage.innerHTML =
-                    `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                </svg>`
-            }
-            newRow.appendChild(isDiscountPercentage);
+            console.log(newRow.children)
             tableBody.appendChild(newRow);
-
+            
             // Clear the form (optional)
             document.getElementById("voucherForm").reset();
         });
-
+        
+        table_headings = document.querySelectorAll("thead th");
         document.querySelector("#search_functionality").onsubmit = searchTable;
 
         function searchTable(event) {
@@ -1063,4 +929,5 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
 </body>
+
 </html>
