@@ -104,7 +104,7 @@
                         icon: 'error',
                         timer: 2000,  // Set the timer in milliseconds (2000ms = 2s)
                         timerProgressBar: true,  // Optional: show a timer progress bar
-                            onBeforeOpen: () => {
+                        onBeforeOpen: () => {
                             Swal.showLoading();
                         },
                         onClose: () => {
@@ -112,22 +112,22 @@
                             console.log('Alert closed');
                         }
                     })
-                } 
+                }
             } else {
                 swal({
-                        title: "Opps",
-                        text: data.message,
-                        icon: 'error',
-                        timer: 2000,  // Set the timer in milliseconds (2000ms = 2s)
-                        timerProgressBar: true,  // Optional: show a timer progress bar
-                            onBeforeOpen: () => {
-                            Swal.showLoading();
-                        },
-                        onClose: () => {
-                            // Do something when the alert closes
-                            console.log('Alert closed');
-                        }
-                    })
+                    title: "Opps",
+                    text: data.message,
+                    icon: 'error',
+                    timer: 2000,  // Set the timer in milliseconds (2000ms = 2s)
+                    timerProgressBar: true,  // Optional: show a timer progress bar
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                    },
+                    onClose: () => {
+                        // Do something when the alert closes
+                        console.log('Alert closed');
+                    }
+                })
             }
         })
     </script>
