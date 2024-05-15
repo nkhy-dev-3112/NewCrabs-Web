@@ -1,0 +1,86 @@
+<div class="login">
+    <div class="login__content">
+        <div class="login__forms">
+            <div style="position: absolute; left: -84px; top: 50px;" class="login__forms">
+                <form id="loginForm" method="post" class="login__registre"
+                    id="login-in">
+                    <h1 class="login__title">Sign In</h1>
+                    
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input style="color: black;" name="username" id="username" type="text" placeholder="Username"
+                            class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        <input style="color: black;" type="password" name="password" id="password"
+                            placeholder="Password" class="login__input">
+                    </div>
+
+                    <a class="login__forgot">Forgot password?</a>
+
+                    <button type="submit" class="login__button">Sign In</button>
+
+                    <div>
+                        <span class="login__account">Don't have an Account ?</span>
+                        <span class="login__signin" id="sign-up">Sign Up</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const formDataJson = JSON.stringify(Object.fromEntries(formData.entries()));
+
+        try {
+            const response = await fetch('http://127.0.0.1:3000/api/account/login?s=1', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: formDataJson,
+                credentials: 'include'
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+                if (!data.isAuthenticated) {
+                    swal({
+                        title: "Opps",
+                        text: data.message,
+                        icon: 'error',
+                        timer: 2000,  // Set the timer in milliseconds (2000ms = 2s)
+                        timerProgressBar: true,  // Optional: show a timer progress bar
+                            onBeforeOpen: () => {
+                            Swal.showLoading();
+                        },
+                        onClose: () => {
+                            // Do something when the alert closes
+                            console.log('Alert closed');
+                        }
+                    })
+                } else {
+                    if (data.scope == 4) {
+                        window.location.href = '/dashboard'
+                    } else if (data.scope == 3) {
+                        window.location.href = '/map'
+                    }
+                }
+            }
+        } catch(error) {
+            console.error('There was a problem with the fetch operation', error);
+        }
+    })
+</script>
+

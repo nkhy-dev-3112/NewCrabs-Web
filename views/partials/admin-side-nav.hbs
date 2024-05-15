@@ -82,6 +82,53 @@
         </div>
     </div>
     <div class="mx-3">
-        <div class="btn bg-primary w-100 text-white">Log out</div>
+        <button id="logoutBtn" class="btn bg-primary w-100 text-white">Log out</button>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', async event => {
+            event.preventDefault();
+            const res = await fetch('http://127.0.0.1:3000/api/account/signout', {
+                method: "GET",
+                credentials: 'include'
+            })
+            if (res.ok) {
+                const data = await res.json();
+                console.log(data)
+                if (data.code == 100) {
+                    window.location.href = 'http://127.0.0.1:4000/'
+                } else {
+                    swal({
+                        title: "Opps",
+                        text: data.message,
+                        icon: 'error',
+                        timer: 2000,  // Set the timer in milliseconds (2000ms = 2s)
+                        timerProgressBar: true,  // Optional: show a timer progress bar
+                            onBeforeOpen: () => {
+                            Swal.showLoading();
+                        },
+                        onClose: () => {
+                            // Do something when the alert closes
+                            console.log('Alert closed');
+                        }
+                    })
+                } 
+            } else {
+                swal({
+                        title: "Opps",
+                        text: data.message,
+                        icon: 'error',
+                        timer: 2000,  // Set the timer in milliseconds (2000ms = 2s)
+                        timerProgressBar: true,  // Optional: show a timer progress bar
+                            onBeforeOpen: () => {
+                            Swal.showLoading();
+                        },
+                        onClose: () => {
+                            // Do something when the alert closes
+                            console.log('Alert closed');
+                        }
+                    })
+            }
+        })
+    </script>
 </aside>
