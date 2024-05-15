@@ -64,3 +64,29 @@
         </div>
     </div>
 </div>
+
+<script>
+    table_headings = document.querySelectorAll("thead th");
+    document.querySelector("#search_functionality").onsubmit = searchTable;
+
+    function searchTable(event) {
+        let table_rows = document.querySelectorAll("tbody .tr_in_table_in_location");
+        const search = document.getElementById("input-search-hehe");
+        event.preventDefault();
+        table_rows.forEach((row, i) => {
+            let table_data = row.textContent.toLowerCase(),
+                search_data = search.value.toLowerCase();
+            console.log(table_data);
+
+            row.classList.toggle("hide", table_data.indexOf(search_data) < 0);
+        });
+    }
+
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>

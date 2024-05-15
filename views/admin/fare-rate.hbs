@@ -1,0 +1,242 @@
+<div class="d-flex flex-column">
+    <div style="display: flex;" class="d-flex px-4 py-4">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add a Fare Rate
+        </button>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-center ">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Fare Rate</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="voucherForm">
+                            <div class="mb-4">
+                                <label for="vehicle">Vehicle Type:</label>
+                                <select id="vehicle" name="vehicle" class="form-select"
+                                    aria-label="Default select example">
+                                    <option value="Bike">Bike</option>
+                                    <option value="4-seat Car">4-seat Car</option>
+                                    <option value="6-seat Car">6-seat Car</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="baseCost">Base cost:</label>
+                                <input type="number" id="baseCost" name="baseCost" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="distanceRate">Distance rate:</label>
+                                <input type="number" id="distanceRate" name="distanceRate" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="timeRate">Time rate:</label>
+                                <input type="number" id="timeRate" name="timeRate" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="startTime">Start Time:</label>
+                                <input type="time" id="startTime" name="startTime">
+                            </div>
+                            <div class="mb-4">
+                                <label for="endTime">End Time:</label>
+                                <input type="time" id="endTime" name="endTime">
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Voucher table</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table id="voucherTable" class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Vehicle Type</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Base Cost</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Distance Rate</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Time Rate</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Duration</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="voucherTableBody">
+                                    <tr class="tr_in_table_in_location">
+                                        <td>
+                                            <div class="d-flex px-2 py-1">
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm">4-seat car</h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">20000đ</span>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <span class="text-secondary font-weight-bold">10000đ</span>
+                                        </td>
+
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">450đ</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">7:00 - 13:59</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr_in_table_in_location">
+                                        <td>
+                                            <div class="d-flex px-2 py-1">
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm">4-seat car</h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">20000đ</span>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <span class="text-secondary font-weight-bold">11000đ</span>
+                                        </td>
+
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">500đ</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary font-weight-bold">16:00 - 19:00</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    table_headings = document.querySelectorAll("thead th");
+    // Function to get voucher information from the form
+    function getFormData() {
+        const form = document.getElementById('voucherForm');
+
+        var baseCost = document.getElementById("baseCost").value;
+        var distanceRate = document.getElementById("distanceRate").value;
+        var timeRate = document.getElementById("timeRate").value;
+        var vehicleSelect = document.getElementById("vehicle");
+        var vehicle = vehicleSelect.options[vehicleSelect.selectedIndex].value;
+        var start = document.getElementById("startTime").value;
+        var end = document.getElementById("endTime").value;
+
+        return {
+            vehicle: vehicle,
+            baseCost: baseCost,
+            distanceRate: distanceRate,
+            timeRate: timeRate,
+            start: start,
+            end: end
+        };
+    }
+
+    document.getElementById("voucherForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var fareRate = getFormData();
+        console.log(fareRate);
+        var tableBody = document.getElementById("voucherTableBody");
+        var newRow = document.createElement("tr");
+        newRow.classList.add("tr_in_table_in_location")
+        var vehicle = document.createElement("td");
+        var baseCost = document.createElement("td");
+        baseCost.classList.add("align-middle", "text-center");
+        var distanceRate = document.createElement("td");
+        distanceRate.classList.add("align-middle", "text-center");
+        var timeRate = document.createElement("td");
+        timeRate.classList.add("align-middle", "text-center");
+        var duration = document.createElement("td");
+        duration.classList.add("align-middle", "text-center");
+
+        vehicle.innerHTML = `
+                <div class="d-flex px-2 py-1">
+                    <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">${fareRate.vehicle}</h6>
+                    </div>
+                </div>
+            `;
+
+        newRow.appendChild(vehicle);
+
+        baseCost.innerHTML = `
+                <span class="text-secondary font-weight-bold">${fareRate.baseCost}</span>
+            `
+        newRow.appendChild(baseCost);
+
+        distanceRate.innerHTML = `
+                    <span class="text-secondary font-weight-bold">${fareRate.distanceRate}</span>
+                `
+
+        newRow.appendChild(distanceRate)
+
+        timeRate.innerHTML = `
+                    <span class="text-secondary font-weight-bold">${fareRate.timeRate}</span>
+                `
+        newRow.appendChild(timeRate);
+
+        duration.innerHTML = `
+                    <span class="text-secondary font-weight-bold">${fareRate.start} - ${fareRate.end}</span>
+                `
+        newRow.appendChild(duration);
+        console.log(newRow.children)
+        tableBody.appendChild(newRow);
+
+        // Clear the form (optional)
+        document.getElementById("voucherForm").reset();
+    });
+
+    document.querySelector("#search_functionality").onsubmit = searchTable;
+
+    function searchTable(event) {
+        let table_rows = document.querySelectorAll("tbody .tr_in_table_in_location");
+        const search = document.getElementById("input-search-hehe");
+        event.preventDefault();
+        table_rows.forEach((row, i) => {
+            let table_data = row.textContent.toLowerCase(),
+                search_data = search.value.toLowerCase();
+            console.log(table_data);
+
+            row.classList.toggle("hide", table_data.indexOf(search_data) < 0);
+        });
+    }
+
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>

@@ -48,7 +48,7 @@ hbs.handlebars.registerHelper('lt', function (a, b, options) {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hi")
+  res.render("login", { layout: 'layout' })
 })
 
 // Admin routing
